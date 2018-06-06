@@ -8,6 +8,7 @@
           <th>Title</th>
           <th>Author</th>
           <th>Source</th>
+          <th>Tweet This</th>
         </tr>
       </thead>
       
@@ -15,12 +16,17 @@
 
         <tr>
           <% @data_articles.each do |x| %>
+            <% @x = x %>
             <td><%= render 'form' %></td>
             <td><a href="<%=x ["url"] %>" target="_blank"><%= x["title"] %></a></td>
             <% if x["author"].to_s.start_with?('http') %>
             <% else %>
               <td><%= x["author"] %></td>
             <td><%= x["source"]["name"] %></td>
+            <td><a class="twitter-share-button"
+            href="https://twitter.com/intent/tweet?text=<%= x["url"]%>"
+            data-size="large">
+          Tweet</a></td>
             <% end %>
         </tr>
           <% end %>

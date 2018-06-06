@@ -1,7 +1,7 @@
 <%= form_for @article, remote:true do |f| %>
-    <%= f.hidden_field :title, value: @data_articles[0]["title"] %>
-    <%= f.hidden_field :url, value: @data_articles[0]["url"] %>
-    <%= f.hidden_field :user_id, value: @users_id %>
+    <%= f.hidden_field :title, value: @x["title"] %>
+    <%= f.hidden_field :url, value: @x["url"] %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
   
     <%= f.submit "Read Later" %>
 <% end %>
