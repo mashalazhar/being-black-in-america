@@ -14,5 +14,8 @@ Rails.application.routes.draw do
 
   resources :users
   resources :posts
-  resources :articles
+
+  get "/topics/:topic/articles", to: "articles#index"
+  resources :articles 
+
 end

@@ -21,9 +21,11 @@
       <a class="navbar-brand" href="/">BEING BLACK IN AMERICA</a>
     </div>
     <ul class="nav navbar-nav">
+    <% if user_signed_in? %>
       <li class="active"><a href="/">Home</a></li>
       <li><a href="#">Saved Searches</a></li>
       <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+      <% end %>
     </ul>
   </nav>
 
@@ -32,11 +34,8 @@
   </div>
 
 
-  <% if user_signed_in? %>
-  <div class="footer">
-  </div>
-<% end %>
+
 
   <%= javascript_include_tag "application" %>
-  </body>
+ </body>
 </html>
