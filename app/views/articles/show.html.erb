@@ -1,1 +1,25 @@
-<p id="notice"><%= notice %></p>
+<div class="container">         
+  <table class="table table-striped">
+    <thead>
+    <h1><center>My Saved Articles<center></h1>
+      <tr>
+        <th>Articles</th>
+        <th>Share</th>
+        <th>Delete</th>
+        <th>Conversations</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    
+      <tr>
+      <% @articles.each do |x| %>
+        <td><a href="<%=x ["url"] %>" target="_blank"><%= x["title"] %></a></td>
+        <td><a class="glyphicon glyphicon-share" href="https://twitter.com/intent/tweet?text=<%= "I found this article on Being Black in America: " %><%= x["url"]%>" data-size="small"></a></td>
+        <td><%= link_to 'Delete', article_path(x), class: "btn btn-default", method: :delete, remote:true, data: { confirm: 'You cannot undo this action. Are you sure you want to delete?' } %></td>
+        <td><%= link_to 'Post Comment', article_path(x), class: "btn btn-default", method: :edit, remote:true %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

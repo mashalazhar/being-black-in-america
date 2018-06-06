@@ -1,5 +1,7 @@
 require 'httparty'
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @articles = Article.all
     @article = Article.new
@@ -10,9 +12,11 @@ class ArticlesController < ApplicationController
   end
 
   def show
-     @articles = Article.find(params[:id])
-     @current_user = current_user
-    #  @racial_discrimination = HTTParty.get("https://newsapi.org/v2/everything?q=racial+discrimination&pageSize=100&apiKey=#{ENV['NEWS_API_KEY']}")
+    # @saved_articles = Article.find(params[:id])
+    @articles = Article.all
+    @current_user = current_user
+    @article = Article.new
+  @current_user = current_user
   end
 
   def create
@@ -23,4 +27,5 @@ class ArticlesController < ApplicationController
   def article_params
     params[:article].permit(:title, :url, :user_id)
   end
+
 end

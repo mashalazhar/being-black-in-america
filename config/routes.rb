@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   devise_for :users
     devise_scope :user do
       authenticated :user do
@@ -18,5 +17,8 @@ Rails.application.routes.draw do
 
   get "/topics/:topic/articles", to: "articles#index"
   resources :articles 
+
+  # get "/saved_searches", to: "saved_searches#show"
+  # resources :saved_searches
 
 end

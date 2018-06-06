@@ -4,11 +4,13 @@
     <table class="table table-striped">
       <thead>
         <tr class="column-name">
+        <center>
           <th>Save</th>
           <th>Title</th>
           <th>Author</th>
           <th>Source</th>
-          <th>Tweet This</th>
+          <th>Share</th>
+          
         </tr>
       </thead>
       
@@ -23,10 +25,7 @@
             <% else %>
               <td><%= x["author"] %></td>
             <td><%= x["source"]["name"] %></td>
-            <td><a class="twitter-share-button"
-            href="https://twitter.com/intent/tweet?text=<%= x["url"]%>"
-            data-size="large">
-          Tweet</a></td>
+            <td><a class="glyphicon glyphicon-share" href="https://twitter.com/intent/tweet?text=<%= "I found this article on Being Black in America: " %><%= x["url"]%>" data-size="small"></a></td>
             <% end %>
         </tr>
           <% end %>

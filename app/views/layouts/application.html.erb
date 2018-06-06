@@ -15,15 +15,14 @@
 
   <body>
 
-
+  <% if user_signed_in? %>
   <nav class="navbar navbar-inverse">
     <div class="navbar-header">
       <a class="navbar-brand" href="/">BEING BLACK IN AMERICA</a>
     </div>
     <ul class="nav navbar-nav">
-    <% if user_signed_in? %>
-      <li class="active"><a href="/">Home</a></li>
-      <li><a href="#">Saved Searches</a></li>
+      <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+      <li><a href="/articles/1"><span class="glyphicon glyphicon-book"></span> Saved Searches</a></li>
       <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
       <% end %>
     </ul>
